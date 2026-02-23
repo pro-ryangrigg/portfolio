@@ -195,13 +195,17 @@ January 2017 – July 2022
 
 # Resume
 
-[View Resume](./documents/Ryan_Grigg_Resume_2026_Updated.docx)
+[View Resume](./documents/resume.md)
+
+[Download Resume](./documents/Ryan_Grigg_Resume_2026_Updated.docx)
 
 ---
 
 # Cover Letter
 
-[View Cover Letter](../documents/Ryan_Grigg_Cover_Letter.docx)
+[View Cover Letter](../documents/cover_letter.md)
+
+[Download Cover Letter](../documents/Ryan_Grigg_Cover_Letter.docx)
 
 ---
 
@@ -209,7 +213,9 @@ January 2017 – July 2022
 
 ## Smart Pet Water Fountain Prototype and Infrastructure
 
-[View Capstone Project](../documents/Project_proposal1.pdf)
+[View Capstone Project](../capstone/proposal.md)
+
+[Download Capstone Project](../documents/Project_proposal1.pdf)
 
 ---
 
