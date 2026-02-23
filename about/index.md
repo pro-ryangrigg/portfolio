@@ -47,7 +47,7 @@ I enjoy solving complex problems, designing maintainable systems, and creating d
 
 ## **Project Work and Technical Interests**
 
-I’m passionate about hands‑on projects that combine hardware, software, and security. My capstone project — a Smart Pet Water Fountain Prototype — brings together microcontroller programming, automation logic, web infrastructure, and optional IoT control. It reflects my interest in embedded systems, secure web design, and real‑world problem solving.
+I’m passionate about hands‑on projects that combine hardware, software, and security. My capstone project is a Smart Pet Water Fountain Prototype that brings together microcontroller programming, automation logic, web infrastructure, and optional IoT control. It reflects my interest in embedded systems, secure web design, and real‑world problem solving.
 
 Other projects include:
 
