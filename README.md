@@ -203,9 +203,9 @@ January 2017 – July 2022
 
 # Cover Letter
 
-[View Cover Letter](../documents/cover_letter.md)
+[View Cover Letter](./documents/cover_letter.md)
 
-[Download Cover Letter](../documents/Ryan_Grigg_Cover_Letter.docx)
+[Download Cover Letter](./documents/Ryan_Grigg_Cover_Letter.docx)
 
 ---
 
@@ -213,9 +213,9 @@ January 2017 – July 2022
 
 ## Smart Pet Water Fountain Prototype and Infrastructure
 
-[View Capstone Project](../capstone/proposal.md)
+[View Capstone Project](./capstone/proposal.md)
 
-[Download Capstone Project](../documents/Project_proposal1.pdf)
+[Download Capstone Project](./documents/Project_proposal1.pdf)
 
 ---
 
