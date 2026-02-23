@@ -9,7 +9,7 @@ Welcome to my professional portfolio, created as part of the Lake Superior Colle
 [Will add soon]:
 
 ```
-![Professional Photo](./images/photo.jpg)
+![Professional Photo](./images/photo.png)
 ```
 
 ---
