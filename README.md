@@ -195,42 +195,21 @@ January 2017 – July 2022
 
 # Resume
 
-[Will add soon]:
-
-```
-[Download Resume](./documents/resume.pdf)
-```
+[View Resume](./documents/Ryan_Grigg_Resume_2026_Updated.docx)
 
 ---
 
 # Cover Letter
 
-[Will add soon]
-
-```
-[Download Cover Letter](./documents/cover_letter.pdf)
-```
+[View Cover Letter](../documents/Ryan_Grigg_Cover_Letter.docx)
 
 ---
 
-# Capstone Project – First Draft
+# Capstone Project 
 
 ## Smart Pet Water Fountain Prototype and Infrastructure
 
-### Scope  
-- Hardware and firmware  
-- Web infrastructure  
-- Optional IoT dashboard  
-- Documentation and project management logs  
-
-### Timeline (Weeks 9 through 16)  
-- Week 9 and 10: Firmware, sensors, testing  
-- Week 11 and 12: Website, HTTPS, domain  
-- Week 13 and 14: IoT dashboard  
-- Week 15 and 16: Final testing, documentation, report  
-
-### Estimated Hours  
-52 total hours
+[View Capstone Project](../documents/Project_proposal1.pdf)
 
 ---
 
