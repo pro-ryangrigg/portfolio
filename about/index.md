@@ -16,7 +16,7 @@ I am currently completing my A.A.S. in Cybersecurity and Network Engineering at 
 
 ## Professional Photo
 
-![Professional Photo](../images/photo.jpg)
+![Professional Photo](./images/photo.png)
 
 ## Contact
 
