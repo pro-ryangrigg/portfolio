@@ -72,5 +72,3 @@ My long‑term goals include advancing into senior systems administration, cyber
 - Location: **Duluth, MN**  
 - GitHub: **[https://github.com/pro-ryangrigg/portfolio](https://github.com/pro-ryangrigg/portfolio)**  
 - LinkedIn: *(Coming soon)*  
-
-Just tell me the style you want.
