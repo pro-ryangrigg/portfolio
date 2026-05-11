@@ -6,7 +6,7 @@ Welcome to my professional portfolio, created as part of the Lake Superior Colle
 
 ## Professional Photo
 
-![Professional Photo](./images/photo.png)
+![Professional Photo](./images/Ryan_Pro.png)
 
 ---
 
