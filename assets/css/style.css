@@ -112,3 +112,12 @@ footer {
     font-size: 0.9rem;
     margin-top: 40px;
 }
+
+.profile-photo {
+    display: block;
+    margin: 0 auto;        /* centers the image */
+    max-width: 200px;      /* controls size */
+    border-radius: 8px;    /* optional: rounded corners */
+}
+
+
