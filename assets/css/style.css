@@ -19,12 +19,12 @@ body, h1, h2, h3, p, nav, header, main {
 }
 
 body {
-    font-family: 'Courier New', monospace; /* terminal font */
+    font-family: 'Courier New', monospace;
     background: var(--dark);
     color: var(--primary);
     line-height: 1.6;
-    text-shadow: 0 0 4px rgba(0,255,100,0.6); /* phosphor glow */
 }
+
 
 /* -------------------------
    HEADER + NAVIGATION
