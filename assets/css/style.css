@@ -1,13 +1,13 @@
 /* -------------------------
-   COLOR PALETTE — DARK HACKER THEME
+   COLOR PALETTE — 80s TERMINAL GREEN
 -------------------------- */
 :root {
-    --primary: #00eaff;      /* neon cyan */
-    --secondary: #007bff;    /* electric blue */
-    --accent: #00ff9d;       /* neon green */
-    --dark: #0d1117;         /* terminal black */
-    --dark-card: #161b22;    /* dark card background */
-    --light: #c9d1d9;        /* soft gray text */
+    --primary: #00ff66;      /* bright phosphor green */
+    --secondary: #00cc55;    /* dimmer green */
+    --accent: #33ff99;       /* soft neon green */
+    --dark: #000000;         /* pure CRT black */
+    --dark-card: #0a0a0a;    /* slightly lifted black */
+    --light: #ccffdd;        /* pale green text */
 }
 
 /* -------------------------
@@ -19,21 +19,22 @@ body, h1, h2, h3, p, nav, header, main {
 }
 
 body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Courier New', monospace; /* terminal font */
     background: var(--dark);
-    color: var(--light);
+    color: var(--primary);
     line-height: 1.6;
+    text-shadow: 0 0 4px rgba(0,255,100,0.6); /* phosphor glow */
 }
 
 /* -------------------------
    HEADER + NAVIGATION
 -------------------------- */
 header {
-    background: #0b0f14;
+    background: #000000;
     color: var(--primary);
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid rgba(0,255,255,0.2);
+    border-bottom: 1px solid rgba(0,255,100,0.4);
 }
 
 nav {
@@ -61,22 +62,23 @@ main {
     margin: 40px auto;
     background: var(--dark-card);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,255,255,0.08);
-    border: 1px solid rgba(0,255,255,0.1);
+    border-radius: 4px;
+    border: 1px solid rgba(0,255,100,0.3);
+    box-shadow: 0 0 20px rgba(0,255,100,0.15);
 }
 
 /* -------------------------
-   LEVEL 1: HERO SECTION
+   HERO SECTION
 -------------------------- */
 .hero {
-    background: linear-gradient(135deg, #001f2b, #003b5c);
+    background: #001900;
     color: var(--primary);
     padding: 60px 20px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-bottom: 30px;
-    text-shadow: 0 0 8px rgba(0,255,255,0.4);
+    border: 1px solid rgba(0,255,100,0.3);
+    text-shadow: 0 0 6px rgba(0,255,100,0.7);
 }
 
 .hero h1 {
@@ -90,21 +92,21 @@ main {
 }
 
 /* -------------------------
-   LEVEL 2: CARD COMPONENTS
+   CARD COMPONENTS
 -------------------------- */
 .card {
-    background: var(--dark-card);
+    background: #000000;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(0,255,255,0.05);
+    border-radius: 4px;
+    border: 1px solid rgba(0,255,100,0.25);
     margin-bottom: 20px;
+    box-shadow: 0 0 12px rgba(0,255,100,0.1);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-    border: 1px solid rgba(0,255,255,0.1);
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 18px rgba(0,255,255,0.2);
+    box-shadow: 0 0 18px rgba(0,255,100,0.3);
 }
 
 /* -------------------------
@@ -116,7 +118,7 @@ footer {
     color: var(--light);
     font-size: 0.9rem;
     margin-top: 40px;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* -------------------------
@@ -126,12 +128,13 @@ footer {
     display: block;
     margin: 0 auto;
     max-width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(0,255,255,0.2);
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(0,255,100,0.3);
+    border: 1px solid rgba(0,255,100,0.4);
 }
 
 /* -------------------------
-   OPTIONAL: CRT SCANLINE EFFECT
+   CRT SCANLINE EFFECT
 -------------------------- */
 body::before {
     content: "";
@@ -143,11 +146,24 @@ body::before {
     pointer-events: none;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0.02) 1px,
+        rgba(0,255,100,0.03),
+        rgba(0,255,100,0.03) 1px,
         transparent 1px,
         transparent 3px
     );
     z-index: 9999;
-    opacity: 0.15;
+    opacity: 0.25;
+}
+
+/* -------------------------
+   CRT FLICKER EFFECT
+-------------------------- */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.97; }
+    100% { opacity: 1; }
+}
+
+body {
+    animation: crt-flicker 0.15s infinite;
 }
