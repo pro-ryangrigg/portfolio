@@ -1,74 +1,150 @@
-# **About Me – Ryan Grigg**
+# About Me — Ryan Grigg
 
 ![Professional Photo](../images/Ryan_Pro.png)
 
-I am an IT Specialist and Network Engineer with over nine years of experience supporting, securing, and administering complex IT systems across federal, military, and private‑sector environments. My career has been shaped by a blend of military discipline, hands‑on technical expertise, and a commitment to building reliable, secure, and user‑focused infrastructure.
+I am an IT Specialist and Network Engineer with over nine years of experience supporting, securing, and administering complex IT systems across federal, military, and private‑sector environments. My background blends military discipline with civilian technical expertise, with strengths in system administration, network engineering, cybersecurity, and customer‑focused support.
 
-My professional journey began in the 148th Air National Guard, where I served as a Network Systems Operations Specialist (Technical Sergeant, E‑6) and later as an IT Specialist (GS‑11). During this time, I managed more than 80 network devices, automated switch configurations, maintained NIST‑aligned security controls, and provided Tier 1 and Tier 2 support for over 1,200 users. I also designed a remote imaging server that was adopted Air Force‑wide — one of the accomplishments I’m most proud of.
+My career began in the 148th Air National Guard, where I served as a Network Systems Operations Specialist (Technical Sergeant, E‑6) and later as an IT Specialist (GS‑11). I managed more than 80 network devices, automated switch configurations, maintained NIST‑aligned security controls, and provided Tier 1 and Tier 2 support for over 1,200 users. One of my most impactful contributions was designing a remote imaging server that was later adopted Air Force‑wide.
 
 Today, I work as a Systems Administrator at US Trade Logistics, where I continue to build and support critical infrastructure. I’ve developed an internal CRM system, deployed Azure Exchange and Microsoft 365, and improved operational workflows through automation and thoughtful system design.
 
----
+I am currently completing my A.A.S. in Cybersecurity and Network Engineering at Lake Superior College (expected August 2026), where I continue to expand my skills in ethical hacking, cloud computing, network security, and systems defense.
 
-## **Academic Background**
-
-I am currently completing my A.A.S. in Cybersecurity and Network Engineering at Lake Superior College (expected August 2026). My coursework spans:
-
-- Cisco networking  
-- Windows and Linux system administration  
-- Security fundamentals  
-- IDS/IPS  
-- Ethical hacking  
-- Cloud computing  
-- Forensics and incident response  
-- Virtualization and server technologies  
-
-This program has strengthened my foundation in both networking and cybersecurity, preparing me for roles that require a deep understanding of secure system design, troubleshooting, and infrastructure management.
+My long‑term goals include advancing into senior systems administration, cybersecurity engineering, or infrastructure automation roles where I can design secure, scalable, and resilient systems.
 
 ---
 
-## **Professional Strengths**
+# Education
 
-I thrive in environments where reliability, security, and clarity matter. My strengths include:
+## A.A.S. – Cybersecurity and Network Engineering  
+**Lake Superior College — Duluth, MN**  
+**Expected August 2026**
 
-- System administration (Windows and Linux/UNIX)  
+### Program Description
+Training includes server and network administration, hardware support, cybersecurity essentials, ethical hacking, and technical support for business environments. Students prepare for CompTIA A+, Network+, Security+, Cisco RSTECH, and EC‑Council CEH certifications.
+
+### Program Outcomes
+- Configure PCs, install operating systems, and troubleshoot hardware/software issues  
+- Explain OSI model, routing, switching, and layered communication  
+- Manage Cisco router hardware and IOS configuration  
+- Design and implement LAN/WAN networks with security controls  
+- Configure DHCP, DNS, network shares, printing, and remote access  
+- Identify security threats and implement safeguards  
+- Apply ethical hacking methodology and recommend countermeasures  
+
+### Coursework (72 Credits)
+
+**Core Courses:**  
+Foundations of CIS, A+ Hardware and Operating Systems, Cisco Networking I & II, Windows Client Administration, Windows Server Administration, UNIX System Administration, Security Fundamentals, Intrusion Detection & Prevention Systems, Network Security, Forensics & Incident Response, Ethical Hacking & Systems Defense, Cloud Computing, Internship, CIS Capstone
+
+**Technical Electives:**  
+Introduction to Programming, Web Server Administration, SQL Server Administration, Server Virtualization, Emerging Technologies, Special Topics
+
+**General Education:**  
+Minnesota Transfer Curriculum (three or more goal areas)
+
+---
+
+# Prior Coursework (Short Descriptions)
+
+| Course | Description |
+|--------|-------------|
+| Cisco Networking I & II | Routing, switching, IOS configuration, VLANs, WAN technologies |
+| Windows Client & Server Administration | Active Directory, GPOs, server roles, enterprise management |
+| UNIX System Administration | Shell, permissions, services, scripting |
+| Security Fundamentals | Threats, vulnerabilities, controls |
+| Intrusion Detection & Prevention Systems | Traffic analysis, detection systems |
+| Network Security | Access control, secure design, risk mitigation |
+| Forensics & Incident Response | Evidence handling, IR process |
+| Ethical Hacking | Pen‑testing methodology, countermeasures |
+| Cloud Computing | Virtualization, cloud services |
+| A+ Hardware & Operating Systems | PC hardware, OS installation, diagnostics |
+| Computer User Support | Customer service, troubleshooting workflows |
+
+---
+
+# Technical Skills
+
+### Systems & Networking
+- Windows and Linux/UNIX administration  
 - Network engineering and device configuration  
-- Cybersecurity fundamentals, IDS/IPS, and ethical hacking  
+- Active Directory, GPOs, DNS, DHCP  
 - Virtualization and cloud services  
-- Active Directory and enterprise management  
-- Troubleshooting and diagnostics  
-- Technical documentation and process improvement  
-- Customer‑focused IT support  
-- Leadership, communication, and mentoring  
 
-I enjoy solving complex problems, designing maintainable systems, and creating documentation that empowers others.
+### Cybersecurity
+- IDS/IPS  
+- Ethical hacking and penetration testing  
+- Vulnerability scanning  
+- Secure network design  
 
----
+### Tools & Platforms
+Cisco IOS, Wireshark, SolarWinds, Docker, virtualization platforms, cloud services, GitHub, Bash, PowerShell
 
-## **Project Work and Technical Interests**
-
-I’m passionate about hands‑on projects that combine hardware, software, and security. My capstone project is a Smart Pet Water Fountain Prototype that brings together microcontroller programming, automation logic, web infrastructure, and optional IoT control. It reflects my interest in embedded systems, secure web design, and real‑world problem solving.
-
-Other projects include:
-
-- Deploying OpenProject via Docker and evaluating its performance  
-- Designing a remote imaging server used across the Air Force  
-- Building internal business systems such as CRM platforms  
-- Implementing secure cloud‑based communication and collaboration tools  
-
-I enjoy exploring new technologies, especially in cybersecurity, automation, and infrastructure engineering.
+### Professional Skills
+Leadership, communication, customer service, collaboration, training and mentoring, technical documentation, project management
 
 ---
 
-## **Professional Goals**
+# Professional Experience
 
-My long‑term goals include advancing into senior systems administration, cybersecurity engineering, or infrastructure automation roles. I’m driven by the challenge of designing secure, scalable, and resilient systems — and by the opportunity to support organizations through thoughtful, well‑engineered solutions.
+## Systems Administrator — US Trade Logistics  
+**June 2023 – Present**
+- Built internal CRM system  
+- Implemented Azure Exchange and Microsoft 365  
+- Improved operational efficiency through automation and system design  
+
+## Network Systems Operations Specialist (Technical Sergeant, E‑6)  
+**148th Air National Guard — Dec 2015 to Nov 2023**
+- Managed 80+ switches, routers, firewalls, and VoIP systems  
+- Automated switch configurations  
+- Ensured NIST‑aligned security compliance  
+- Maintained zero major incidents  
+
+## IT Specialist – Customer Support (GS‑11)  
+**148th Air National Guard — Jan 2017 to Jul 2022**
+- Provided Tier 1 & Tier 2 support for 1,200 users  
+- Managed Active Directory environments  
+- Designed remote imaging server adopted Air Force‑wide  
 
 ---
 
-## **Contact**
+# Project Work & Technical Interests
 
-- Email: **pro.ryangrigg@gmail.com**  
-- Location: **Duluth, MN**  
-- GitHub: **[https://github.com/pro-ryangrigg/portfolio](https://github.com/pro-ryangrigg/portfolio)**  
-- LinkedIn: **https://www.linkedin.com/in/ryan-grigg-b95979407/**  
+I enjoy hands‑on projects that combine hardware, software, and security. Key projects include:
+
+### Smart Pet Water Fountain Prototype (Capstone)
+- 3D modeling in Autodesk Fusion  
+- Local network infrastructure with OPNSense  
+- Hardened web backend  
+- Vulnerability scanning with OpenVAS  
+- Fully working Phase I prototype  
+
+### OpenProject Deployment & Management
+- Deployed OpenProject via Docker  
+- Configured self‑hosted project management environment  
+- Used for weekly logs, time tracking, and task management  
+
+### Remote Imaging Server (Air National Guard)
+- Designed remote imaging infrastructure  
+- Automated domain‑joining  
+- Adopted Air Force‑wide  
+
+### Gif Finder (Python Project)
+- Tkinter GUI  
+- GIPHY API integration  
+- Search, preview, and save GIFs  
+
+---
+
+# Professional Goals
+
+I aim to advance into senior systems administration, cybersecurity engineering, or infrastructure automation roles. I’m driven by designing secure, scalable, and resilient systems that support mission‑critical operations.
+
+---
+
+# Contact
+
+- **Email:** pro.ryangrigg@gmail.com  
+- **Location:** Duluth, MN  
+- **GitHub:** https://github.com/pro-ryangrigg/portfolio  
+- **LinkedIn:** https://www.linkedin.com/in/ryan-grigg-b95979407/  
