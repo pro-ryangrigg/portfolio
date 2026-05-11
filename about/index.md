@@ -1,6 +1,6 @@
 # **About Me – Ryan Grigg**
 
-![Professional Photo](../images/photo.png)
+![Professional Photo](../images/Ryan_Pro.png)
 
 I am an IT Specialist and Network Engineer with over nine years of experience supporting, securing, and administering complex IT systems across federal, military, and private‑sector environments. My career has been shaped by a blend of military discipline, hands‑on technical expertise, and a commitment to building reliable, secure, and user‑focused infrastructure.
 
