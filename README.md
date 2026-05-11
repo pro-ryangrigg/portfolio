@@ -78,53 +78,64 @@ Below are selected academic, professional, and independent projects.
 ## 1. Smart Pet Water Fountain Prototype (Capstone Project)
 
 **Role:** Founder, Lead Developer  
-**Tools:** Arduino or Raspberry Pi Pico, sensors, microcontroller firmware, HTTPS web server, IoT dashboard  
-**Outcome:** First functional prototype and secure web infrastructure
+**Tools:** Autodesk Fusion, Bambu Studio, Ubuntu Server, OPNSense, OpenVAS, TurnKey Linux  
+**Outcome:** Fully working Phase I prototype with secure backend infrastructure
 
-### Highlights  
-- Designed and programmed microcontroller firmware  
-- Built automation logic for pump cycles and water‑level detection  
-- Created secure website with HTTPS and domain configuration  
-- Developed optional IoT control interface  
-- Produced wiring diagrams, documentation, and project logs  
+### Highlights
+- Designed full 3D hardware prototype in Autodesk Fusion  
+- Built local network infrastructure for secure self‑hosting  
+- Deployed hardened web backend for future product website  
+- Performed vulnerability scanning using Kali Linux + OpenVAS  
+- Created documentation, wiring diagrams, and weekly project logs  
+
 
 ---
 
-## 2. OpenProject Deployment and Review
+## 2. OpenProject Deployment and Management
 
-**Role:** Systems Administrator and Researcher  
-**Tools:** Docker, Ubuntu 24.04, OpenProject, YAML  
-**Outcome:** Fully deployed project management system and evaluation report
+**Role:** Systems Administrator, Project Leader  
+**Tools:** Ubuntu Server, Docker, Docker Compose, OpenProject  
+**Outcome:** Fully deployed self‑hosted project management system used to track the Water Fountain Prototype
 
-### Highlights  
-- Installed OpenProject via Docker  
-- Modified Docker Compose YAML for compatibility  
-- Documented installation steps and troubleshooting  
-- Evaluated features, performance, and usability  
+### Highlights
+- Deployed OpenProject via Docker on Ubuntu Server  
+- Configured containers, storage, and environment variables  
+- Used OpenProject to track weekly updates, time estimates, and task breakdowns  
+- Evaluated features including Gantt charts, Agile boards, and time tracking  
+- Improved project visibility and accountability through structured reporting  
+
 
 ---
 
 ## 3. Remote Imaging Server (Air National Guard)
 
-**Role:** IT Specialist (GS‑11)  
-**Outcome:** Adopted Air Force‑wide
+**Role:** IT Specialist (GS‑11), 148th Air National Guard  
+**Tools:** Windows Server 2019, Custom USAF Windows Image, Secure Service Accounts  
+**Outcome:** Adopted Air Force‑wide and used to image tens of thousands of systems
 
-### Highlights  
-- Designed remote imaging server  
-- Enabled deployment of custom Windows images  
-- Authored documentation used across the U.S. Air Force  
+### Highlights
+- Designed and deployed a remote imaging server supporting base‑wide imaging  
+- Enabled automated domain‑joining with zero manual intervention  
+- Replaced outdated Windows Server 2012 system with modern infrastructure  
+- Authored a complete imaging guide used across multiple USAF bases  
+- Enabled imaging in secure or restricted areas without IT staff present  
+
 
 ---
 
-## 4. CRM System for US Trade Logistics
+## 4. Gif Finder (Python Project)
 
-**Role:** Systems Administrator  
-**Outcome:** Improved client tracking and operational efficiency
+**Role:** Developer  
+**Tools:** Python, Tkinter GUI, Requests, GIPHY API  
+**Outcome:** Desktop application for searching, previewing, and saving GIFs
 
-### Highlights  
-- Built internal CRM system  
-- Implemented Azure Exchange and Microsoft 365  
-- Enhanced workflow automation  
+### Highlights
+- Built a clean, responsive Tkinter GUI for GIF search  
+- Integrated GIPHY API for real‑time results  
+- Implemented async‑style request handling for smooth UI performance  
+- Added image preview, save‑to‑disk, and search history features  
+- Demonstrated modular architecture, API handling, and GUI design  
+
 
 ---
 
