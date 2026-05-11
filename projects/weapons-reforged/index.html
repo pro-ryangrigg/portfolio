@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapons Reforged | Project</title>
+
+    <!-- CSS path goes UP two folders -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Ryan Grigg</h1>
+        <nav>
+            <a href="../../">Home</a>
+            <a href="../../about/">About</a>
+            <a href="../../projects/">Projects</a>
+            <a href="../../documents/">Documents</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Weapons Reforged</h1>
+            <p>Modding • WeiDU • Baldur’s Gate EE/EET • Systems Design</p>
+        </section>
+
+        <!-- OVERVIEW -->
+        <div class="card">
+            <h2>Project Overview</h2>
+            <p>
+                <strong>Weapons Reforged</strong> is a modular, data‑driven overhaul of weapon usability and proficiency rules 
+                for Baldur’s Gate Enhanced Editions and EET. It provides a clean, compatibility‑focused framework for universal 
+                weapon access, proficiency minimums, class‑restricted proficiency caps, and optional removal of fighting style limits — 
+                all without altering item descriptions, weapon stats, or kit definitions.
+            </p>
+            <p>
+                The mod is designed for long‑term stability, interoperability with large mod stacks, and ease of translation 
+                and maintenance. It is licensed under <strong>CC BY 4.0</strong>.
+            </p>
+        </div>
+
+        <!-- REPOSITORY -->
+        <div class="card">
+            <h2>Repository</h2>
+            <p>
+                GitHub: 
+                <a href="https://github.com/CelestialFury-BG/weapons-reforged/" target="_blank">
+                    https://github.com/CelestialFury-BG/weapons-reforged/
+                </a>
+            </p>
+        </div>
+
+        <!-- IMAGE SLOT 1 -->
+        <div class="card" style="text-align:center;">
+            <h3>Mod Architecture — Placeholder</h3>
+            <img src="weapons_reforged1.png" alt="Weapons Reforged Screenshot 1" style="max-width:100%; border-radius:8px;">
+        </div>
+
+        <!-- ROLE -->
+        <div class="card">
+            <h2>My Role</h2>
+            <ul>
+                <li>Designed the modular WeiDU architecture</li>
+                <li>Developed all item‑level and proficiency‑level patching logic</li>
+                <li>Ensured compatibility with BGEE, BG2EE, and EET</li>
+                <li>Created translation‑ready component strings</li>
+                <li>Maintained documentation and community support</li>
+            </ul>
+        </div>
+
+        <!-- IMAGE SLOT 2 -->
+        <div class="card" style="text-align:center;">
+            <h3>Proficiency Table Logic — Placeholder</h3>
+            <img src="weapons_reforged2.png" alt="Weapons Reforged Screenshot 2" style="max-width:100%; border-radius:8px;">
+        </div>
+
+        <!-- TECHNOLOGIES -->
+        <div class="card">
+            <h2>Tools & Technologies</h2>
+            <ul>
+                <li><strong>WeiDU</strong> — mod installer and patching framework</li>
+                <li><strong>Infinity Engine Enhanced Editions</strong> — BGEE, BG2EE, EET</li>
+                <li><strong>2DA Table Patching</strong> — clasweap.2da, weapprof.2da, etc.</li>
+                <li><strong>Item Usability Byte Patching</strong></li>
+                <li><strong>PRETTY_PRINT_2DA</strong> for clean output</li>
+                <li><strong>Translation System</strong> for multilingual support</li>
+            </ul>
+        </div>
+
+        <!-- IMAGE SLOT 3 -->
+        <div class="card" style="text-align:center;">
+            <h3>Component Structure — Placeholder</h3>
+            <img src="weapons_reforged3.png" alt="Weapons Reforged Screenshot 3" style="max-width:100%; border-radius:8px;">
+        </div>
+
+        <!-- FEATURES -->
+        <div class="card">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Item‑level usability overhauls with alignment preservation</li>
+                <li>Universal weapon access (Monks excluded)</li>
+                <li>Minimum proficiency options (1–5 pips)</li>
+                <li>Enhanced proficiency caps respecting class restrictions</li>
+                <li>Fighting style cap removal for all classes except Monks and Kensai</li>
+                <li>Modular, conflict‑resistant component design</li>
+            </ul>
+        </div>
+
+        <!-- CHALLENGES -->
+        <div class="card">
+            <h2>Technical Challenges & Solutions</h2>
+            <ul>
+                <li><strong>Clean WeiDU architecture:</strong> Solved with component isolation, REQUIRE_PREDICATE checks, and safe patching.</li>
+                <li><strong>Auto‑detection of engine structures:</strong> Automatically detects MONK/KENSAI columns and weapon row ranges.</li>
+                <li><strong>Compatibility with large mod stacks:</strong> Avoids altering stats or descriptions; patches only usability and proficiency tables.</li>
+            </ul>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="card">
+            <h2>Results & Impact</h2>
+            <p>
+                Weapons Reforged provides a stable, predictable overhaul of weapon usability and proficiency rules. 
+                It is fully compatible with BGEE, BG2EE, and EET, supports nine languages, and is widely used within 
+                the Baldur’s Gate modding community. The modular design ensures long‑term maintainability and 
+                interoperability with large mod stacks.
+            </p>
+        </div>
+
+        <!-- LEARNING -->
+        <div class="card">
+            <h2>What I Learned</h2>
+            <ul>
+                <li>Advanced WeiDU scripting and modular patch design</li>
+                <li>Clean 2DA table manipulation and auto‑detection techniques</li>
+                <li>Designing compatibility‑focused mods for large ecosystems</li>
+                <li>Managing translations and community contributions</li>
+                <li>Structuring a mod for long‑term maintainability</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Ryan Grigg — Built with GitHub Pages</p>
+    </footer>
+</body>
+</html>
