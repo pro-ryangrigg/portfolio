@@ -71,4 +71,4 @@ My long‑term goals include advancing into senior systems administration, cyber
 - Email: **pro.ryangrigg@gmail.com**  
 - Location: **Duluth, MN**  
 - GitHub: **[https://github.com/pro-ryangrigg/portfolio](https://github.com/pro-ryangrigg/portfolio)**  
-- LinkedIn: *(Coming soon)*  
+- LinkedIn: **https://www.linkedin.com/in/ryan-grigg-b95979407/**  
