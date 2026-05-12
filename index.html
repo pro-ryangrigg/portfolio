@@ -3,86 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Grigg | Portfolio</title>
+    <title>Home | Ryan Grigg</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS path goes UP one folder -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="matrix-bg">
-        <canvas id="matrixCanvas"></canvas>
+        <canvas id="matrix"></canvas>
     </div>
-    <header>
-        <h1>Ryan Grigg</h1>
-        <div class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">
-            ☰
-        </div>
-        <nav>
-            <a href="about/">About</a>
-            <a href="projects/">Projects</a>
-            <a href="documents/">Documents</a>
-        </nav>
-    </header>
+<header>
+    <h1>Ryan Grigg</h1>
+    <div class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">
+        ☰
+    </div>
+    <nav>
+        <a href="../">Home</a>
+        <a href="../projects/">Projects</a>
+    </nav>
+</header>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to My Portfolio</h1>
-            <p>IT Specialist • Cybersecurity • Hardware Development • Systems Engineering</p>
-        </section>
+<main>
 
-        <div class="card">
-            <h2>Welcome</h2>
-            <p>I am an IT Specialist and Network Engineer with over nine years of experience supporting, securing, and administering complex IT systems across federal, 
-                military, and private‑sector environments. My background blends military discipline with civilian technical expertise, with strengths in system administration,
-                network engineering, cybersecurity, and customer‑focused support. I am currently completing my A.A.S. in Cybersecurity and Network Engineering at Lake Superior 
-                College (expected August 2026), where I continue to expand my skills in ethical hacking, cloud computing, network security, and systems defense. My professional 
-                goals include advancing into senior systems administration, cybersecurity engineering, or infrastructure automation roles where I can design secure, scalable, and resilient systems.</p><br>
-            <p>Use the navigation above to explore my projects, documents, and background.</p>
-        </div>
-    </main>
-        <footer>
-            <p>© 2026 Ryan Grigg — Built with GitHub Pages</p>
-        </footer>
-    <script>
-    const canvas = document.getElementById('matrixCanvas');
-    const ctx = canvas.getContext('2d');
+    <!-- HERO -->
+    <section class="hero">
+        <h1>About Me</h1>
+        <p>Systems Administration • Network Engineering • Cybersecurity • Military IT</p>
+    </section>
+
+    <!-- INTRO -->
+
+    <div class="card" style="text-align:center;">
+        <img src="../images/Ryan_Pro.png" 
+             alt="Professional Photo"
+             style="max-width:50%; border-radius:8px;">
+    </div>
+
     
+    <div class="card">
+        <h2>Professional Introduction</h2><br>
+        <p>
+            I am an IT Specialist and Network Engineer with over nine years of experience supporting, securing,
+            and administering complex IT systems across federal, military, and private‑sector environments.
+            My background blends military discipline with civilian technical expertise, with strengths in system
+            administration, network engineering, cybersecurity, and customer‑focused support.
+        </p><br>
+
+        <p>
+            My career began in the 148th Air National Guard, where I served as a Network Systems Operations Specialist
+            (Technical Sergeant, E‑6) and later as an IT Specialist (GS‑11). I managed more than 80 network devices,
+            automated switch configurations, maintained NIST‑aligned security controls, and provided Tier 1 and Tier 2
+            support for over 1,200 users. One of my most impactful contributions was designing a remote imaging server
+            that was later adopted Air Force‑wide.
+        </p><br>
+
+        <p>
+            Today, I work as a Systems Administrator at US Trade Logistics, where I continue to build and support
+            critical infrastructure. I’ve developed an internal CRM system, deployed Azure Exchange and Microsoft 365,
+            and improved operational workflows through automation and thoughtful system design.
+        </p><br>
+
+        <p>
+            I am currently completing my A.A.S. in Cybersecurity and Network Engineering at Lake Superior College
+            (expected August 2026), where I continue to expand my skills in ethical hacking, cloud computing,
+            network security, and systems defense.
+        </p><br>
+
+        <p>
+            My long‑term goals include advancing into senior systems administration, cybersecurity engineering,
+            or infrastructure automation roles where I can design secure, scalable, and resilient systems.
+        </p><br>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="card">
+        <h2>Education</h2>
+
+        <h3>A.A.S. – Cybersecurity and Network Engineering</h3>
+        <p><strong>Lake Superior College — Duluth, MN</strong><br>
+        Expected August 2026</p>
+
+        <h4>Program Description</h4>
+        <p>
+            Training includes server and network administration, hardware support, cybersecurity essentials,
+            ethical hacking, and technical support for business environments. Students prepare for CompTIA A+,
+            Network+, Security+, Cisco RSTECH, and EC‑Council CEH certifications.
+        </p>
+
+        <h4>Program Outcomes</h4>
+        <ul>
+            <li>Configure PCs, install operating systems, and troubleshoot hardware/software issues</li>
+            <li>Explain OSI model, routing, switching, and layered communication</li>
+            <li>Manage Cisco router hardware and IOS configuration</li>
+            <li>Design and implement LAN/WAN networks with security controls</li>
+            <li>Configure DHCP, DNS, network shares, printing, and remote access</li>
+            <li>Identify security threats and implement safeguards</li>
+            <li>Apply ethical hacking methodology and recommend countermeasures</li>
+        </ul>
+
+        <h4>Coursework (72 Credits)</h4>
+        <p><strong>Core Courses:</strong><br>
+            Foundations of CIS, A+ Hardware and Operating Systems, Cisco Networking I & II,
+            Windows Client Administration, Windows Server Administration, UNIX System Administration,
+            Security Fundamentals, Intrusion Detection & Prevention Systems, Network Security,
+            Forensics & Incident Response, Ethical Hacking & Systems Defense, Cloud Computing,
+            Internship, CIS Capstone
+        </p>
+
+        <p><strong>Technical Electives:</strong><br>
+            Introduction to Programming, Web Server Administration, SQL Server Administration,
+            Server Virtualization, Emerging Technologies, Special Topics
+        </p>
+
+        <p><strong>General Education:</strong><br>
+            Minnesota Transfer Curriculum (three or more goal areas)
+        </p>
+    </div>
+
+    <!-- COURSE TABLE -->
+    <div class="card">
+        <h2>Prior Coursework</h2>
+
+        <table>
+            <tr><th>Course</th><th>Description</th></tr>
+            <tr><td>Cisco Networking I & II</td><td>Routing, switching, IOS configuration, VLANs, WAN technologies</td></tr>
+            <tr><td>Windows Client & Server Administration</td><td>Active Directory, GPOs, server roles, enterprise management</td></tr>
+            <tr><td>UNIX System Administration</td><td>Shell, permissions, services, scripting</td></tr>
+            <tr><td>Security Fundamentals</td><td>Threats, vulnerabilities, controls</td></tr>
+            <tr><td>Intrusion Detection & Prevention Systems</td><td>Traffic analysis, detection systems</td></tr>
+            <tr><td>Network Security</td><td>Access control, secure design, risk mitigation</td></tr>
+            <tr><td>Forensics & Incident Response</td><td>Evidence handling, IR process</td></tr>
+            <tr><td>Ethical Hacking</td><td>Pen‑testing methodology, countermeasures</td></tr>
+            <tr><td>Cloud Computing</td><td>Virtualization, cloud services</td></tr>
+            <tr><td>A+ Hardware & Operating Systems</td><td>PC hardware, OS installation, diagnostics</td></tr>
+            <tr><td>Computer User Support</td><td>Customer service, troubleshooting workflows</td></tr>
+        </table>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li>Windows & Linux/UNIX system administration</li>
+            <li>Network engineering & device configuration</li>
+            <li>Active Directory, DNS, DHCP, GPOs</li>
+            <li>Virtualization & cloud services</li>
+            <li>IDS/IPS, ethical hacking, vulnerability scanning</li>
+            <li>Technical documentation & process improvement</li>
+            <li>Project management & infrastructure planning</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <ul>
+            <li>Cisco IOS, Wireshark, SolarWinds</li>
+            <li>Docker, virtualization platforms</li>
+            <li>Cloud services, GitHub</li>
+            <li>Bash, PowerShell</li>
+        </ul>
+
+        <h3>Professional Skills</h3>
+        <ul>
+            <li>Leadership & communication</li>
+            <li>Customer service & collaboration</li>
+            <li>Training & mentoring</li>
+        </ul>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card">
+        <h2>Professional Experience</h2>
+
+        <h3>Systems Administrator — US Trade Logistics</h3>
+        <p><em>June 2023 – Present</em></p>
+        <ul>
+            <li>Built internal CRM system</li>
+            <li>Implemented Azure Exchange & Microsoft 365</li>
+            <li>Improved operational efficiency through automation</li>
+        </ul>
+
+        <h3>Network Systems Operations Specialist (Technical Sergeant, E‑6)</h3>
+        <p><em>148th Air National Guard — Dec 2015 to Nov 2023</em></p>
+        <ul>
+            <li>Managed 80+ switches, routers, firewalls, and VoIP systems</li>
+            <li>Automated switch configurations</li>
+            <li>Ensured NIST‑aligned security compliance</li>
+            <li>Maintained zero major incidents</li>
+        </ul>
+
+        <h3>IT Specialist – Customer Support (GS‑11)</h3>
+        <p><em>148th Air National Guard — Jan 2017 to Jul 2022</em></p>
+        <ul>
+            <li>Provided Tier 1 & Tier 2 support for 1,200 users</li>
+            <li>Managed Active Directory environments</li>
+            <li>Designed remote imaging server adopted Air Force‑wide</li>
+        </ul>
+    </div>
+
+    <!-- PROJECT INTERESTS -->
+    <div class="card">
+        <h2>Project Work & Technical Interests</h2>
+        <ul>
+            <li>Smart Pet Water Fountain Prototype — 3D modeling, automation, secure backend</li>
+            <li>OpenProject Deployment — Docker-based project management environment</li>
+            <li>Remote Imaging Server — Adopted Air Force‑wide</li>
+            <li>Gif Finder — Python GUI with GIPHY API integration</li>
+        </ul>
+    </div>
+
+    <!-- GOALS -->
+    <div class="card">
+        <h2>Professional Goals</h2>
+        <p>
+            I aim to advance into senior systems administration, cybersecurity engineering,
+            or infrastructure automation roles. I’m driven by designing secure, scalable,
+            and resilient systems that support mission‑critical operations.
+        </p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> pro.ryangrigg@gmail.com</p>
+        <p><strong>Location:</strong> Duluth, MN</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/pro-ryangrigg/portfolio">github.com/pro-ryangrigg/portfolio</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ryan-grigg-b95979407/">linkedin.com/in/ryan-grigg</a></p>
+    </div>
+
+</main>
+
+<section class="documents">
+    <h2>Professional Documents</h2>
+    <p>You can download my current resume and cover letter below:</p>
+
+    <ul class="doc-links">
+        <li><a href="documents/Ryan_Grigg_Resume_2026_Updated.docx" target="_blank">📄 Resume (DOCX)</a></li>
+        <li><a href="documents/Ryan_Grigg_Cover_Letter.docx" target="_blank">📝 Cover Letter (DOCX)</a></li>
+    </ul>
+</section>    
+
+<footer>
+    <p>© 2026 Ryan Grigg — Built with GitHub Pages</p>
+</footer>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
-    const letters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789";
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    
-    const drops = Array(Math.floor(columns)).fill(1);
-    
-    function drawMatrix() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-        ctx.fillStyle = "#00ff66"; 
-        ctx.font = fontSize + "px monospace";
-    
-        for (let i = 0; i < drops.length; i++) {
-            const text = letters.charAt(Math.floor(Math.random() * letters.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-    
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-    
-            drops[i]++;
-        }
-    }
-    
-    setInterval(drawMatrix, 50);
-    
-    window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-    </script>
+}
+resize();
+window.onresize = resize;
 
+const letters = "アカサタナハマヤラワ0123456789";
+const fontSize = 16;
+let columns = canvas.width / fontSize;
+let drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff66";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const char = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 50);
+</script>
 </body>
 </html>
