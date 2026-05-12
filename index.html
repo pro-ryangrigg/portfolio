@@ -329,30 +329,77 @@ function drawShootingStar(s) {
     ctx.stroke();
     ctx.restore();
 }
-
 // ----------------------------
-// NEBULA FOG (Level B)
+// SEAMLESS PERLIN NEBULA (Chunky)
 // ----------------------------
 const fogCanvas = document.createElement("canvas");
 const fogCtx = fogCanvas.getContext("2d");
-fogCanvas.width = 400;
-fogCanvas.height = 400;
-
-function generateFog() {
-    const img = fogCtx.createImageData(fogCanvas.width, fogCanvas.height);
-    for (let i = 0; i < img.data.length; i += 4) {
-        const v = Math.random() * 80;
-        img.data[i] = 0;
-        img.data[i + 1] = v;
-        img.data[i + 2] = 20;
-        img.data[i + 3] = v * 0.8;
-    }
-    fogCtx.putImageData(img, 0, 0);
-}
-generateFog();
+fogCanvas.width = 512;
+fogCanvas.height = 512;
 
 let fogOffsetX = 0;
 let fogOffsetY = 0;
+
+// Perlin noise helpers
+function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+function lerp(a, b, t) { return a + t * (b - a); }
+
+function perlin(x, y, seed) {
+    const xi = Math.floor(x) & 255;
+    const yi = Math.floor(y) & 255;
+
+    const xf = x - Math.floor(x);
+    const yf = y - Math.floor(y);
+
+    const u = fade(xf);
+    const v = fade(yf);
+
+    const aa = seed[(xi + seed[yi]) & 255];
+    const ab = seed[(xi + seed[yi + 1]) & 255];
+    const ba = seed[(xi + 1 + seed[yi]) & 255];
+    const bb = seed[(xi + 1 + seed[yi + 1]) & 255];
+
+    const x1 = lerp(aa, ba, u);
+    const x2 = lerp(ab, bb, u);
+
+    return lerp(x1, x2, v);
+}
+
+// Generate seamless Perlin texture
+function generateSeamlessFog() {
+    const seed = [];
+    for (let i = 0; i < 256; i++) seed[i] = Math.random() * 2 - 1;
+
+    const img = fogCtx.createImageData(fogCanvas.width, fogCanvas.height);
+
+    for (let y = 0; y < fogCanvas.height; y++) {
+        for (let x = 0; x < fogCanvas.width; x++) {
+
+            // Tileable coordinates
+            const nx = x / fogCanvas.width;
+            const ny = y / fogCanvas.height;
+
+            // Chunky nebula noise
+            const n =
+                perlin(nx * 4, ny * 4, seed) * 0.6 +
+                perlin(nx * 8, ny * 8, seed) * 0.3 +
+                perlin(nx * 16, ny * 16, seed) * 0.1;
+
+            const v = Math.floor((n + 1) * 40); // green intensity
+
+            const i = (y * fogCanvas.width + x) * 4;
+            img.data[i] = 0;
+            img.data[i + 1] = v;
+            img.data[i + 2] = 20;
+            img.data[i + 3] = v * 1.2; // opacity
+        }
+    }
+
+    fogCtx.putImageData(img, 0, 0);
+}
+
+generateSeamlessFog();
+
 
 // ----------------------------
 // ALIEN CRAFTS (Saucer + Chevron)
