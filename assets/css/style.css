@@ -1,4 +1,32 @@
 /* -------------------------
+   COLOR PALETTE — 80s TERMINAL GREEN
+-------------------------- */
+:root {
+    --primary: #00ff66;      /* bright phosphor green */
+    --secondary: #00cc55;    /* dimmer green */
+    --accent: #33ff99;       /* soft neon green */
+    --dark: #000000;         /* pure CRT black */
+    --dark-card: #0a0a0a;    /* slightly lifted black */
+    --light: #ccffdd;        /* pale green text */
+}
+
+/* -------------------------
+   GLOBAL BASE STYLES
+-------------------------- */
+body, h1, h2, h3, p, nav, header, main {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: var(--dark);
+    color: var(--primary);
+    line-height: 1.6;
+    animation: crt-flicker 0.15s infinite;
+}
+
+/* -------------------------
    HEADER + NAVIGATION (UPGRADED)
 -------------------------- */
 
@@ -8,7 +36,7 @@ header {
     padding: 20px 0 10px 0;
     text-align: center;
     border-bottom: 1px solid rgba(0,255,100,0.4);
-    position: sticky;        /* Sticky header */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -24,13 +52,13 @@ nav {
 
 /* NAV LINKS */
 nav a {
-    font-size: 1.25rem;              /* Larger text */
-    font-weight: 700;                /* Stronger presence */
-    color: var(--accent);            /* Neon green */
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
     text-decoration: none;
-    padding: 8px 14px;               /* Button-like spacing */
+    padding: 8px 14px;
     border-radius: 6px;
-    transition: 
+    transition:
         color 0.25s ease,
         background-color 0.25s ease,
         text-shadow 0.25s ease,
@@ -53,18 +81,13 @@ nav a.active {
     text-shadow: 0 0 10px var(--primary);
 }
 
-/* -------------------------
-   MOBILE NAVIGATION
--------------------------- */
-
+/* MOBILE NAVIGATION */
 @media (max-width: 700px) {
 
-    /* Stack header content */
     header {
         padding-bottom: 20px;
     }
 
-    /* Hide normal nav */
     nav {
         display: none;
         flex-direction: column;
@@ -72,7 +95,6 @@ nav a.active {
         margin-top: 15px;
     }
 
-    /* Hamburger button */
     .nav-toggle {
         display: block;
         cursor: pointer;
@@ -87,7 +109,6 @@ nav a.active {
         text-shadow: 0 0 10px var(--primary);
     }
 
-    /* Show nav when active */
     nav.open {
         display: flex;
     }
@@ -96,4 +117,135 @@ nav a.active {
 /* Desktop: hide hamburger */
 .nav-toggle {
     display: none;
+}
+
+/* -------------------------
+   MAIN CONTENT CONTAINER
+-------------------------- */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--dark-card);
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,255,100,0.3);
+    box-shadow: 0 0 20px rgba(0,255,100,0.15);
+}
+
+/* -------------------------
+   HERO SECTION
+-------------------------- */
+.hero {
+    background: #001900;
+    color: var(--primary);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,255,100,0.3);
+    text-shadow: 0 0 6px rgba(0,255,100,0.7);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* -------------------------
+   CARD COMPONENTS
+-------------------------- */
+.card {
+    background: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,255,100,0.25);
+    margin-bottom: 20px;
+    box-shadow: 0 0 12px rgba(0,255,100,0.1);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(0,255,100,0.3);
+}
+
+/* -------------------------
+   FOOTER
+-------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--light);
+    font-size: 0.9rem;
+    margin-top: 40px;
+    opacity: 0.8;
+}
+
+/* -------------------------
+   PROFILE IMAGE
+-------------------------- */
+.profile-photo {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(0,255,100,0.3);
+    border: 1px solid rgba(0,255,100,0.4);
+}
+
+/* -------------------------
+   CRT SCANLINE EFFECT
+-------------------------- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,100,0.03),
+        rgba(0,255,100,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    z-index: 9999;
+    opacity: 0.25;
+}
+
+/* -------------------------
+   CRT FLICKER EFFECT
+-------------------------- */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.97; }
+    100% { opacity: 1; }
+}
+
+/* -------------------------
+   MATRIX FALLING CODE BACKGROUND
+-------------------------- */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: black;
+    overflow: hidden;
+}
+
+.matrix-bg canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
