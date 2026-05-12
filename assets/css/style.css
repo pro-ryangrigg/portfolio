@@ -81,13 +81,23 @@ nav a.active {
     text-shadow: 0 0 10px var(--primary);
 }
 
-/* MOBILE NAVIGATION */
+/* -------------------------
+   MOBILE NAVIGATION (FIXED + INTEGRATED)
+-------------------------- */
 @media (max-width: 700px) {
 
+    /* Shrink header so toggle stays visible */
     header {
-        padding-bottom: 20px;
+        padding: 10px 0 5px 0;
     }
 
+    /* Shrink title so it doesn't push toggle off-screen */
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+    }
+
+    /* Hide normal nav layout */
     nav {
         display: none;
         flex-direction: column;
@@ -95,12 +105,13 @@ nav a.active {
         margin-top: 15px;
     }
 
+    /* Show hamburger toggle */
     .nav-toggle {
         display: block;
         cursor: pointer;
         font-size: 1.8rem;
         color: var(--accent);
-        margin-top: 10px;
+        margin-top: 4px; /* tighter spacing so it stays visible */
         transition: color 0.25s ease;
     }
 
@@ -109,10 +120,12 @@ nav a.active {
         text-shadow: 0 0 10px var(--primary);
     }
 
+    /* When toggle is pressed, show nav */
     nav.open {
         display: flex;
     }
 }
+
 
 /* Desktop: hide hamburger */
 .nav-toggle {
