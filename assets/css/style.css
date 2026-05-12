@@ -112,6 +112,44 @@ nav a.active {
 }
 
 /* -------------------------
+   DOCUMENT LINKS SECTION
+-------------------------- */
+.documents {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--dark-card);
+    border: 1px solid rgba(0,255,100,0.25);
+    border-radius: 8px;
+}
+
+.documents h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.doc-links {
+    list-style: none;
+    padding: 0;
+}
+
+.doc-links li {
+    margin: 8px 0;
+}
+
+.doc-links a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.doc-links a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+
+/* -------------------------
    MOBILE NAVIGATION (FIXED + INTEGRATED)
 -------------------------- */
 @media (max-width: 700px) {
