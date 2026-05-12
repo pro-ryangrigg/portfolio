@@ -264,8 +264,8 @@ window.onresize = resize;
 // ----------------------------
 // STARFIELD LAYERS
 // ----------------------------
-const layer1 = []; // foreground stars
-const layer2 = []; // deep parallax stars
+const fgStars = [];
+const bgStars = [];
 
 function createStars(arr, count, speedScale) {
     for (let i = 0; i < count; i++) {
@@ -282,8 +282,8 @@ function createStars(arr, count, speedScale) {
     }
 }
 
-createStars(layer1, 120, 1.0);
-createStars(layer2, 80, 0.4);
+createStars(fgStars, 120, 1.0);
+createStars(bgStars, 80, 0.4);
 
 // ----------------------------
 // CAMERA PAN
@@ -294,22 +294,85 @@ let camAngle = 0;
 let camSpeed = 0.0005;
 
 // ----------------------------
-// ALIEN CRAFT EASTER EGGS
+// SHOOTING STARS
+// ----------------------------
+const shootingStars = [];
+
+function spawnShootingStar() {
+    if (Math.random() < 0.002) {
+        shootingStars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height * 0.5,
+            vx: Math.random() * 4 + 2,
+            vy: Math.random() * 1 + 0.5,
+            alpha: 1,
+            size: Math.random() * 2 + 1
+        });
+    }
+}
+
+function updateShootingStar(s) {
+    s.x += s.vx;
+    s.y += s.vy;
+    s.alpha -= 0.01;
+    if (s.alpha <= 0) s.dead = true;
+}
+
+function drawShootingStar(s) {
+    ctx.save();
+    ctx.globalAlpha = s.alpha;
+    ctx.strokeStyle = "#00ff66";
+    ctx.lineWidth = s.size;
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(s.x - s.vx * 4, s.y - s.vy * 4);
+    ctx.stroke();
+    ctx.restore();
+}
+
+// ----------------------------
+// NEBULA FOG (Level B)
+// ----------------------------
+const fogCanvas = document.createElement("canvas");
+const fogCtx = fogCanvas.getContext("2d");
+fogCanvas.width = 400;
+fogCanvas.height = 400;
+
+function generateFog() {
+    const img = fogCtx.createImageData(fogCanvas.width, fogCanvas.height);
+    for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 80;
+        img.data[i] = 0;
+        img.data[i + 1] = v;
+        img.data[i + 2] = 20;
+        img.data[i + 3] = v * 0.8;
+    }
+    fogCtx.putImageData(img, 0, 0);
+}
+generateFog();
+
+let fogOffsetX = 0;
+let fogOffsetY = 0;
+
+// ----------------------------
+// ALIEN CRAFTS (Saucer + Chevron)
 // ----------------------------
 const crafts = [];
 
 function spawnCraft() {
-    // Very rare spawn
     if (Math.random() < 0.002) {
+        const type = Math.random() < 0.6 ? "saucer" : "chevron";
         crafts.push({
+            type,
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height * 0.5,
-            size: 6,
+            size: type === "saucer" ? 8 : 10,
             alpha: 0,
             phase: "beamIn",
             timer: 0,
             vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4
+            vy: (Math.random() - 0.5) * 0.4,
+            ripple: 0
         });
     }
 }
@@ -317,6 +380,7 @@ function spawnCraft() {
 function updateCraft(c) {
     if (c.phase === "beamIn") {
         c.alpha += 0.01;
+        c.ripple += 1.5;
         if (c.alpha >= 0.8) c.phase = "move";
     }
 
@@ -330,28 +394,51 @@ function updateCraft(c) {
 
     if (c.phase === "beamOut") {
         c.alpha -= 0.01;
+        c.ripple += 1.5;
         if (c.alpha <= 0) c.dead = true;
     }
 
-    // Wrap edges
     if (c.x < 0) c.x = canvas.width;
     if (c.x > canvas.width) c.x = 0;
     if (c.y < 0) c.y = canvas.height;
     if (c.y > canvas.height) c.y = 0;
 }
 
+function drawRipple(c) {
+    if (c.ripple > 0 && c.ripple < 80) {
+        ctx.save();
+        ctx.strokeStyle = `rgba(0,255,100,${0.4 - c.ripple / 80})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.ripple, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+    }
+}
+
 function drawCraft(c) {
     ctx.save();
     ctx.globalAlpha = c.alpha;
-
-    // Simple subtle craft shape (tiny glowing triangle)
     ctx.fillStyle = "#00ff66";
-    ctx.beginPath();
-    ctx.moveTo(c.x, c.y - c.size);
-    ctx.lineTo(c.x - c.size * 0.6, c.y + c.size);
-    ctx.lineTo(c.x + c.size * 0.6, c.y + c.size);
-    ctx.closePath();
-    ctx.fill();
+
+    if (c.type === "saucer") {
+        ctx.beginPath();
+        ctx.ellipse(c.x, c.y, c.size, c.size * 0.4, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(c.x, c.y - c.size * 0.3, c.size * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    if (c.type === "chevron") {
+        ctx.beginPath();
+        ctx.moveTo(c.x, c.y - c.size);
+        ctx.lineTo(c.x - c.size, c.y + c.size);
+        ctx.lineTo(c.x + c.size, c.y + c.size);
+        ctx.closePath();
+        ctx.fill();
+    }
 
     ctx.restore();
 }
@@ -363,13 +450,11 @@ let time = 0;
 
 function drawStars(arr, parallax) {
     arr.forEach(s => {
-        // Pulsing
         const pulse = Math.sin(time * s.pulseSpeed + s.pulseOffset) * 0.5 + 0.5;
         const alpha = s.alphaBase + pulse * 0.3;
 
         ctx.fillStyle = `rgba(0,255,100,${alpha})`;
 
-        // Apply camera pan
         const px = s.x + camX * parallax;
         const py = s.y + camY * parallax;
 
@@ -377,11 +462,9 @@ function drawStars(arr, parallax) {
         ctx.arc(px, py, s.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Drift
         s.x += s.driftX;
         s.y += s.driftY;
 
-        // Wrap
         if (s.x < 0) s.x = canvas.width;
         if (s.x > canvas.width) s.x = 0;
         if (s.y < 0) s.y = canvas.height;
@@ -393,18 +476,36 @@ function animate() {
     ctx.fillStyle = "rgba(0,0,0,0.25)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Camera pan (slow drifting)
     camAngle += camSpeed;
     camX = Math.cos(camAngle) * 20;
     camY = Math.sin(camAngle) * 20;
 
-    // Draw parallax layers
-    drawStars(layer2, 0.3);
-    drawStars(layer1, 1.0);
+    fogOffsetX += 0.02;
+    fogOffsetY += 0.01;
 
-    // Alien crafts
+    ctx.globalAlpha = 0.12;
+    ctx.drawImage(
+        fogCanvas,
+        fogOffsetX % fogCanvas.width,
+        fogOffsetY % fogCanvas.height,
+        canvas.width,
+        canvas.height
+    );
+    ctx.globalAlpha = 1;
+
+    drawStars(bgStars, 0.3);
+    drawStars(fgStars, 1.0);
+
+    spawnShootingStar();
+    shootingStars.forEach(s => updateShootingStar(s));
+    shootingStars.forEach(s => drawShootingStar(s));
+    for (let i = shootingStars.length - 1; i >= 0; i--) {
+        if (shootingStars[i].dead) shootingStars.splice(i, 1);
+    }
+
     spawnCraft();
     crafts.forEach(c => updateCraft(c));
+    crafts.forEach(c => drawRipple(c));
     crafts.forEach(c => drawCraft(c));
     for (let i = crafts.length - 1; i >= 0; i--) {
         if (crafts[i].dead) crafts.splice(i, 1);
