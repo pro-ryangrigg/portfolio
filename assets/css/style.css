@@ -81,6 +81,11 @@ nav a.active {
     text-shadow: 0 0 10px var(--primary);
 }
 
+/* Desktop: hide hamburger */
+.nav-toggle {
+    display: none;
+}
+
 /* -------------------------
    MOBILE NAVIGATION (FIXED + INTEGRATED)
 -------------------------- */
@@ -105,16 +110,6 @@ nav a.active {
         margin-top: 15px;
     }
 
-    /* Show hamburger toggle */
-    .nav-toggle {
-        display: block;
-        cursor: pointer;
-        font-size: 1.8rem;
-        color: var(--accent);
-        margin-top: 4px; /* tighter spacing so it stays visible */
-        transition: color 0.25s ease;
-    }
-
     .nav-toggle:hover {
         color: var(--primary);
         text-shadow: 0 0 10px var(--primary);
@@ -124,12 +119,6 @@ nav a.active {
     nav.open {
         display: flex;
     }
-}
-
-
-/* Desktop: hide hamburger */
-.nav-toggle {
-    display: none;
 }
 
 /* -------------------------
