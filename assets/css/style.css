@@ -11,6 +11,31 @@
 }
 
 /* -------------------------
+   GLOBAL LINK COLORS
+-------------------------- */
+
+a {
+    color: var(--accent); /* soft neon green */
+    text-decoration: none;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+a:hover {
+    color: var(--primary); /* bright phosphor green */
+    text-shadow: 0 0 8px var(--primary);
+}
+
+a:visited {
+    color: var(--secondary); /* dimmer green */
+}
+
+a:active {
+    color: var(--primary);
+    text-shadow: 0 0 12px var(--primary);
+}
+
+
+/* -------------------------
    GLOBAL BASE STYLES
 -------------------------- */
 body, h1, h2, h3, p, nav, header, main {
