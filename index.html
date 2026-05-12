@@ -249,7 +249,7 @@
 <footer>
     <p>© 2026 Ryan Grigg — Built with GitHub Pages</p>
 </footer>
-
+    
 <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -261,57 +261,162 @@ function resize() {
 resize();
 window.onresize = resize;
 
-// Star settings
-const starCount = 150;
-const stars = [];
+// ----------------------------
+// STARFIELD LAYERS
+// ----------------------------
+const layer1 = []; // foreground stars
+const layer2 = []; // deep parallax stars
 
-for (let i = 0; i < starCount; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.8 + 0.3,
-        pulseSpeed: Math.random() * 0.02 + 0.005,
-        baseAlpha: Math.random() * 0.4 + 0.3,
-        alphaOffset: Math.random() * Math.PI * 2,
-        driftX: (Math.random() - 0.5) * 0.05,
-        driftY: (Math.random() - 0.5) * 0.05
-    });
+function createStars(arr, count, speedScale) {
+    for (let i = 0; i < count; i++) {
+        arr.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 1.6 + 0.3,
+            alphaBase: Math.random() * 0.4 + 0.3,
+            pulseSpeed: Math.random() * 0.02 + 0.005,
+            pulseOffset: Math.random() * Math.PI * 2,
+            driftX: (Math.random() - 0.5) * 0.03 * speedScale,
+            driftY: (Math.random() - 0.5) * 0.03 * speedScale
+        });
+    }
 }
 
+createStars(layer1, 120, 1.0);
+createStars(layer2, 80, 0.4);
+
+// ----------------------------
+// CAMERA PAN
+// ----------------------------
+let camX = 0;
+let camY = 0;
+let camAngle = 0;
+let camSpeed = 0.0005;
+
+// ----------------------------
+// ALIEN CRAFT EASTER EGGS
+// ----------------------------
+const crafts = [];
+
+function spawnCraft() {
+    // Very rare spawn
+    if (Math.random() < 0.002) {
+        crafts.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height * 0.5,
+            size: 6,
+            alpha: 0,
+            phase: "beamIn",
+            timer: 0,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4
+        });
+    }
+}
+
+function updateCraft(c) {
+    if (c.phase === "beamIn") {
+        c.alpha += 0.01;
+        if (c.alpha >= 0.8) c.phase = "move";
+    }
+
+    if (c.phase === "move") {
+        c.x += c.vx;
+        c.y += c.vy;
+        c.timer++;
+
+        if (c.timer > 300) c.phase = "beamOut";
+    }
+
+    if (c.phase === "beamOut") {
+        c.alpha -= 0.01;
+        if (c.alpha <= 0) c.dead = true;
+    }
+
+    // Wrap edges
+    if (c.x < 0) c.x = canvas.width;
+    if (c.x > canvas.width) c.x = 0;
+    if (c.y < 0) c.y = canvas.height;
+    if (c.y > canvas.height) c.y = 0;
+}
+
+function drawCraft(c) {
+    ctx.save();
+    ctx.globalAlpha = c.alpha;
+
+    // Simple subtle craft shape (tiny glowing triangle)
+    ctx.fillStyle = "#00ff66";
+    ctx.beginPath();
+    ctx.moveTo(c.x, c.y - c.size);
+    ctx.lineTo(c.x - c.size * 0.6, c.y + c.size);
+    ctx.lineTo(c.x + c.size * 0.6, c.y + c.size);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+}
+
+// ----------------------------
+// DRAW LOOP
+// ----------------------------
 let time = 0;
 
-function drawStars() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+function drawStars(arr, parallax) {
+    arr.forEach(s => {
+        // Pulsing
+        const pulse = Math.sin(time * s.pulseSpeed + s.pulseOffset) * 0.5 + 0.5;
+        const alpha = s.alphaBase + pulse * 0.3;
 
-    stars.forEach(s => {
-        // Pulse effect
-        const pulse = Math.sin(time * s.pulseSpeed + s.alphaOffset) * 0.5 + 0.5;
-        const alpha = s.baseAlpha + pulse * 0.3;
+        ctx.fillStyle = `rgba(0,255,100,${alpha})`;
 
-        ctx.fillStyle = `rgba(0, 255, 100, ${alpha})`;
+        // Apply camera pan
+        const px = s.x + camX * parallax;
+        const py = s.y + camY * parallax;
+
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.arc(px, py, s.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Drift motion
+        // Drift
         s.x += s.driftX;
         s.y += s.driftY;
 
-        // Wrap edges
+        // Wrap
         if (s.x < 0) s.x = canvas.width;
         if (s.x > canvas.width) s.x = 0;
         if (s.y < 0) s.y = canvas.height;
         if (s.y > canvas.height) s.y = 0;
     });
-
-    time += 1;
-    requestAnimationFrame(drawStars);
 }
 
-drawStars();
+function animate() {
+    ctx.fillStyle = "rgba(0,0,0,0.25)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Camera pan (slow drifting)
+    camAngle += camSpeed;
+    camX = Math.cos(camAngle) * 20;
+    camY = Math.sin(camAngle) * 20;
+
+    // Draw parallax layers
+    drawStars(layer2, 0.3);
+    drawStars(layer1, 1.0);
+
+    // Alien crafts
+    spawnCraft();
+    crafts.forEach(c => updateCraft(c));
+    crafts.forEach(c => drawCraft(c));
+    for (let i = crafts.length - 1; i >= 0; i--) {
+        if (crafts[i].dead) crafts.splice(i, 1);
+    }
+
+    time += 1;
+    requestAnimationFrame(animate);
+}
+
+animate();
 </script>
-    
+
     
 </body>
 </html>
