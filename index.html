@@ -395,6 +395,32 @@ function generateSeamlessFog() {
     }
 
     fogCtx.putImageData(img, 0, 0);
+    // Feather the edges for seamless blending
+    const w = fogCanvas.width;
+    const h = fogCanvas.height;
+    const img2 = fogCtx.getImageData(0, 0, w, h);
+    const d = img2.data;
+    
+    for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+    
+            // Distance to nearest edge (0 = edge, 1 = center)
+            const dx = Math.min(x, w - x) / (w * 0.5);
+            const dy = Math.min(y, h - y) / (h * 0.5);
+            const edge = Math.min(dx, dy);
+    
+            // Smooth falloff curve
+            const feather = Math.pow(edge, 1.5);
+    
+            const i = (y * w + x) * 4;
+    
+            // Multiply alpha by feather
+            d[i + 3] *= feather;
+        }
+    }
+    
+    fogCtx.putImageData(img2, 0, 0);
+
 
     // Soften the fog texture (blur after generating)
     fogCtx.filter = "blur(2px)";
