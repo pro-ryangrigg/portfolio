@@ -261,29 +261,42 @@ function resize() {
 resize();
 window.onresize = resize;
 
-const letters = "アカサタナハマヤラワ0123456789";
-const fontSize = 16;
-let columns = canvas.width / fontSize;
-let drops = Array(Math.floor(columns)).fill(1);
+// Grid settings
+let gridSize = 40;              // distance between grid lines
+let speed = 0.4;                // animation speed
+let offset = 0;                 // animation offset
 
-function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+function drawGrid() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#00ff66";
-    ctx.font = fontSize + "px monospace";
+    ctx.strokeStyle = "rgba(0, 255, 100, 0.35)";
+    ctx.lineWidth = 1;
 
-    for (let i = 0; i < drops.length; i++) {
-        const char = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+    offset += speed;
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
+    // Perspective effect
+    const centerY = canvas.height * 0.65;
 
-        drops[i]++;
+    for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, centerY + (y + offset));
+        ctx.lineTo(canvas.width, centerY + (y + offset));
+        ctx.stroke();
     }
+
+    for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, centerY + offset);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    requestAnimationFrame(drawGrid);
 }
+
+drawGrid();
+</script>
+
 
 setInterval(draw, 50);
 </script>
