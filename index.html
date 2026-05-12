@@ -249,7 +249,7 @@
 <footer>
     <p>© 2026 Ryan Grigg — Built with GitHub Pages</p>
 </footer>
-    
+
 <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -329,6 +329,7 @@ function drawShootingStar(s) {
     ctx.stroke();
     ctx.restore();
 }
+
 // ----------------------------
 // SEAMLESS PERLIN NEBULA (Chunky)
 // ----------------------------
@@ -375,31 +376,33 @@ function generateSeamlessFog() {
     for (let y = 0; y < fogCanvas.height; y++) {
         for (let x = 0; x < fogCanvas.width; x++) {
 
-            // Tileable coordinates
             const nx = x / fogCanvas.width;
             const ny = y / fogCanvas.height;
 
-            // Chunky nebula noise
             const n =
                 perlin(nx * 4, ny * 4, seed) * 0.6 +
                 perlin(nx * 8, ny * 8, seed) * 0.3 +
                 perlin(nx * 16, ny * 16, seed) * 0.1;
 
-            const v = Math.floor((n + 1) * 40); // green intensity
+            const v = Math.floor((n + 1) * 40);
 
             const i = (y * fogCanvas.width + x) * 4;
             img.data[i] = 0;
             img.data[i + 1] = v;
             img.data[i + 2] = 20;
-            img.data[i + 3] = v * 1.2; // opacity
+            img.data[i + 3] = v * 1.2;
         }
     }
 
     fogCtx.putImageData(img, 0, 0);
+
+    // Soften the fog texture (blur after generating)
+    fogCtx.filter = "blur(2px)";
+    fogCtx.drawImage(fogCanvas, 0, 0);
+    fogCtx.filter = "none";
 }
 
 generateSeamlessFog();
-
 
 // ----------------------------
 // ALIEN CRAFTS (Saucer + Chevron)
@@ -435,7 +438,6 @@ function updateCraft(c) {
         c.x += c.vx;
         c.y += c.vy;
         c.timer++;
-
         if (c.timer > 300) c.phase = "beamOut";
     }
 
@@ -529,22 +531,22 @@ function animate() {
 
     fogOffsetX += 0.02;
     fogOffsetY += 0.01;
-    
-    // Draw seamless tiled fog
+
+    // Draw fog scaled up for softness, tiled seamlessly
     ctx.globalAlpha = 0.12;
-    
-    const fw = fogCanvas.width;
-    const fh = fogCanvas.height;
-    
+
+    const fw = fogCanvas.width * 1.5;
+    const fh = fogCanvas.height * 1.5;
+
     const startX = -((fogOffsetX % fw + fw) % fw);
     const startY = -((fogOffsetY % fh + fh) % fh);
-    
+
     for (let x = startX; x < canvas.width; x += fw) {
         for (let y = startY; y < canvas.height; y += fh) {
-            ctx.drawImage(fogCanvas, x, y);
+            ctx.drawImage(fogCanvas, x, y, fw, fh);
         }
     }
-    
+
     ctx.globalAlpha = 1;
 
     drawStars(bgStars, 0.3);
@@ -571,7 +573,7 @@ function animate() {
 
 animate();
 </script>
-
+    
     
 </body>
 </html>
