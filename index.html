@@ -262,7 +262,7 @@ resize();
 window.onresize = resize;
 
 // Hex settings
-const hexSize = 40; // distance between hex centers
+const hexSize = 40; // radius of hex
 let time = 0;
 
 function drawHex(x, y, size) {
@@ -278,14 +278,8 @@ function drawHex(x, y, size) {
 }
 
 function drawGrid() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    const glow = (Math.sin(time) + 1) / 2; // 0 → 1
-    const alpha = 0.15 + glow * 0.25;      // subtle pulse
-
-    ctx.strokeStyle = `rgba(0, 255, 100, ${alpha})`;
-    ctx.lineWidth = 1;
 
     const hexHeight = Math.sqrt(3) * hexSize;
     const rows = Math.ceil(canvas.height / hexHeight) + 2;
@@ -295,6 +289,17 @@ function drawGrid() {
         for (let col = 0; col < cols; col++) {
             const x = col * hexSize * 1.5;
             const y = row * hexHeight + (col % 2 ? hexHeight / 2 : 0);
+
+            // Directional wave: move left → right
+            const wavePhase = (x / canvas.width) * Math.PI * 2 + time * 2;
+            const wave = (Math.sin(wavePhase) + 1) / 2; // 0 → 1
+
+            const baseAlpha = 0.08;
+            const waveBoost = 0.3;
+            const alpha = baseAlpha + wave * waveBoost;
+
+            ctx.strokeStyle = `rgba(0, 255, 100, ${alpha})`;
+            ctx.lineWidth = 1;
 
             drawHex(x, y, hexSize);
             ctx.stroke();
@@ -307,6 +312,7 @@ function drawGrid() {
 
 drawGrid();
 </script>
+
     
 </body>
 </html>
