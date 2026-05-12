@@ -2,38 +2,36 @@
    COLOR PALETTE — 80s TERMINAL GREEN
 -------------------------- */
 :root {
-    --primary: #00ff66;      /* bright phosphor green */
-    --secondary: #00cc55;    /* dimmer green */
-    --accent: #33ff99;       /* soft neon green */
-    --dark: #000000;         /* pure CRT black */
-    --dark-card: #0a0a0a;    /* slightly lifted black */
-    --light: #ccffdd;        /* pale green text */
+    --primary: #00ff66;
+    --secondary: #00cc55;
+    --accent: #33ff99;
+    --dark: #000000;
+    --dark-card: #0a0a0a;
+    --light: #ccffdd;
 }
 
 /* -------------------------
    GLOBAL LINK COLORS
 -------------------------- */
-
 a {
-    color: var(--accent); /* soft neon green */
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 a:hover {
-    color: var(--primary); /* bright phosphor green */
+    color: var(--primary);
     text-shadow: 0 0 8px var(--primary);
 }
 
 a:visited {
-    color: var(--secondary); /* dimmer green */
+    color: var(--secondary);
 }
 
 a:active {
     color: var(--primary);
     text-shadow: 0 0 12px var(--primary);
 }
-
 
 /* -------------------------
    GLOBAL BASE STYLES
@@ -52,9 +50,8 @@ body {
 }
 
 /* -------------------------
-   HEADER + NAVIGATION (UPGRADED)
+   HEADER + NAVIGATION
 -------------------------- */
-
 header {
     background: #000000;
     color: var(--primary);
@@ -66,7 +63,6 @@ header {
     z-index: 1000;
 }
 
-/* NAV CONTAINER */
 nav {
     display: flex;
     justify-content: center;
@@ -75,12 +71,10 @@ nav {
     margin-top: 12px;
 }
 
-/* NAV LINKS */
 nav a {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--accent);
-    text-decoration: none;
     padding: 8px 14px;
     border-radius: 6px;
     transition:
@@ -90,7 +84,6 @@ nav a {
         transform 0.25s ease;
 }
 
-/* HOVER EFFECT */
 nav a:hover {
     color: var(--primary);
     background-color: rgba(0,255,100,0.12);
@@ -98,7 +91,6 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* ACTIVE PAGE HIGHLIGHT */
 nav a.active {
     color: var(--primary);
     background-color: rgba(0,255,100,0.18);
@@ -112,87 +104,19 @@ nav a.active {
 }
 
 /* -------------------------
-   DOCUMENT LINKS SECTION
--------------------------- */
-.documents {
-    margin-top: 40px;
-    padding: 20px;
-    background: var(--dark-card);
-    border: 1px solid rgba(0,255,100,0.25);
-    border-radius: 8px;
-}
-
-.documents h2 {
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-.doc-links {
-    list-style: none;
-    padding: 0;
-}
-
-.doc-links li {
-    margin: 8px 0;
-}
-
-.doc-links a {
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-.doc-links a:hover {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
-}
-
-/* -------------------------
-   CONTACT SECTION
--------------------------- */
-.contact {
-    margin-top: 40px;
-    padding: 20px;
-    background: var(--dark-card);
-    border: 1px solid rgba(0,255,100,0.25);
-    border-radius: 8px;
-}
-
-.contact h2 {
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-.contact a {
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-.contact a:hover {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
-}
-
-/* -------------------------
-   MOBILE NAVIGATION (FIXED + INTEGRATED)
+   MOBILE NAVIGATION
 -------------------------- */
 @media (max-width: 700px) {
 
-    /* Shrink header so toggle stays visible */
     header {
         padding: 10px 0 5px 0;
     }
 
-    /* Shrink title so it doesn't push toggle off-screen */
     h1 {
         font-size: 1.6rem;
         margin-bottom: 6px;
     }
 
-    /* Hide normal nav layout */
     nav {
         display: none;
         flex-direction: column;
@@ -200,21 +124,20 @@ nav a.active {
         margin-top: 15px;
     }
 
-   .nav-toggle {
+    .nav-toggle {
         display: block;
         cursor: pointer;
         font-size: 1.8rem;
         color: var(--accent);
         margin-top: 4px;
-        transition: color 0.25s ease; 
-   }
+        transition: color 0.25s ease;
+    }
 
     .nav-toggle:hover {
         color: var(--primary);
         text-shadow: 0 0 10px var(--primary);
     }
 
-    /* When toggle is pressed, show nav */
     nav.open {
         display: flex;
     }
@@ -276,6 +199,67 @@ main {
 }
 
 /* -------------------------
+   DOCUMENT LINKS SECTION
+-------------------------- */
+.documents {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--dark-card);
+    border: 1px solid rgba(0,255,100,0.25);
+    border-radius: 8px;
+}
+
+.documents h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.doc-links {
+    list-style: none;
+    padding: 0;
+}
+
+.doc-links li {
+    margin: 8px 0;
+}
+
+.doc-links a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.doc-links a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+/* -------------------------
+   CONTACT SECTION
+-------------------------- */
+.contact {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--dark-card);
+    border: 1px solid rgba(0,255,100,0.25);
+    border-radius: 8px;
+}
+
+.contact h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.contact a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+/* -------------------------
    FOOTER
 -------------------------- */
 footer {
@@ -331,7 +315,7 @@ body::before {
 }
 
 /* -------------------------
-   MATRIX FALLING CODE BACKGROUND
+   MATRIX BACKGROUND
 -------------------------- */
 .matrix-bg {
     position: fixed;
