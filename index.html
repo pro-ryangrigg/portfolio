@@ -529,15 +529,22 @@ function animate() {
 
     fogOffsetX += 0.02;
     fogOffsetY += 0.01;
-
+    
+    // Draw seamless tiled fog
     ctx.globalAlpha = 0.12;
-    ctx.drawImage(
-        fogCanvas,
-        fogOffsetX % fogCanvas.width,
-        fogOffsetY % fogCanvas.height,
-        canvas.width,
-        canvas.height
-    );
+    
+    const fw = fogCanvas.width;
+    const fh = fogCanvas.height;
+    
+    const startX = -((fogOffsetX % fw + fw) % fw);
+    const startY = -((fogOffsetY % fh + fh) % fh);
+    
+    for (let x = startX; x < canvas.width; x += fw) {
+        for (let y = startY; y < canvas.height; y += fh) {
+            ctx.drawImage(fogCanvas, x, y);
+        }
+    }
+    
     ctx.globalAlpha = 1;
 
     drawStars(bgStars, 0.3);
