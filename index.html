@@ -261,6 +261,19 @@ function resize() {
 resize();
 window.onresize = resize;
 
+// Mouse tracking
+let mouse = { x: null, y: null, radius: 180 };
+
+window.addEventListener("mousemove", e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+
+window.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+});
+
 // Node settings
 const nodeCount = 110;
 const maxDistance = 140;
@@ -283,18 +296,40 @@ function draw() {
     // Draw nodes
     ctx.fillStyle = "#00ff66";
     nodes.forEach(n => {
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
-        ctx.fill();
+        // Mouse gravity
+        if (mouse.x !== null) {
+            const dx = mouse.x - n.x;
+            const dy = mouse.y - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
 
+            if (dist < mouse.radius) {
+                const force = (mouse.radius - dist) / mouse.radius;
+                const angle = Math.atan2(dy, dx);
+
+                // Pull toward mouse
+                n.vx += Math.cos(angle) * force * 0.03;
+                n.vy += Math.sin(angle) * force * 0.03;
+            }
+        }
+
+        // Move node
         n.x += n.vx;
         n.y += n.vy;
+
+        // Soft velocity damping
+        n.vx *= 0.98;
+        n.vy *= 0.98;
 
         // Wrap edges
         if (n.x < 0) n.x = canvas.width;
         if (n.x > canvas.width) n.x = 0;
         if (n.y < 0) n.y = canvas.height;
         if (n.y > canvas.height) n.y = 0;
+
+        // Draw node
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
+        ctx.fill();
     });
 
     // Draw connecting lines
